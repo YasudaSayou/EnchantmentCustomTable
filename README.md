@@ -15,7 +15,7 @@ If you're also not a fan of randomly rolling enchantments, you might want to giv
 
 ## Enchantment Custom Table
 
-![enchantment custom table gui](./src/main/resources/doc/enchantment_custom_table_gui.jpg)
+![enchantment custom table gui](https://github.com/HatanoKawa/EnchantmentCustomTable/blob/master/src/main/resources/doc/enchantment_custom_table_gui.jpg)
 
 Place a tool or an enchanted book containing multiple enchantments in the top-left slot. All enchantments on the item will be displayed as individual enchanted books in the 4×6 grid on the right.
 
@@ -37,17 +37,17 @@ Clicking this button will remove all enchantments from the tool and combine them
 
 ### recipe
 
-![enchantment custom table recipe](./src/main/resources/doc/enchanting_custom_table_recipe.png)
+![enchantment custom table recipe](https://github.com/HatanoKawa/EnchantmentCustomTable/blob/master/src/main/resources/doc/enchanting_custom_table_recipe.png)
 
 ## Enchantment Conversion Table
 
-![enchantment conversion table gui](./src/main/resources/doc/enchantment_conversion_table_gui.jpg)
+![enchantment conversion table gui](https://github.com/HatanoKawa/EnchantmentCustomTable/blob/master/src/main/resources/doc/enchantment_conversion_table_gui.jpg)
 
 Place a book and either emeralds or emerald blocks in the designated slots on the left. If the minimum cost is met (by default, 1 book + 36 emeralds or 4 emerald blocks), the 4×7 grid on the right will display all available enchantments at their maximum level. You can then exchange books and emeralds for the corresponding enchanted books.
 
 ### recipe
 
-![enchantment conversion table recipe](./src/main/resources/doc/enchantment_conversion_table_recipe.png)
+![enchantment conversion table recipe](https://github.com/HatanoKawa/EnchantmentCustomTable/blob/master/src/main/resources/doc/enchantment_conversion_table_recipe.png)
 
 # Balance Considerations
 When creating this mod, I did not focus on balance. However, I understand that some players value gameplay challenges and balance.

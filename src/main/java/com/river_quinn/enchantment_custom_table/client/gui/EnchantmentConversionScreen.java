@@ -88,7 +88,7 @@ public class EnchantmentConversionScreen extends AbstractContainerScreen<Enchant
     public void init() {
         super.init();
         button_left_arrow_button = Button.builder(
-                Component.translatable("gui.enchantment_custom_table.enchantment_custom.button_left_arrow"),
+                Component.literal("\u003c\u003c"),
                 e -> {
                     menuContainer.previousPage();
                     PacketDistributor.sendToServer(new EnchantmentConversionTableNetData(
@@ -100,7 +100,7 @@ public class EnchantmentConversionScreen extends AbstractContainerScreen<Enchant
         this.addRenderableWidget(button_left_arrow_button);
 
         button_right_arrow_button = Button.builder(
-                Component.translatable("gui.enchantment_custom_table.enchantment_custom.button_right_arrow"),
+                Component.literal("\u003e\u003e"),
                 e -> {
                     menuContainer.nextPage();
                     PacketDistributor.sendToServer(new EnchantmentConversionTableNetData(

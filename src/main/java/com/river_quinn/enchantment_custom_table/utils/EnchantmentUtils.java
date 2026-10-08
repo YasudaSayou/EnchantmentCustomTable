@@ -1,6 +1,5 @@
 package com.river_quinn.enchantment_custom_table.utils;
 
-import com.river_quinn.enchantment_custom_table.Config;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
@@ -29,9 +28,6 @@ public class EnchantmentUtils {
     }
 
     public static int getEnchantCost(ItemStack toolItemStack) {
-        if (!Config.enableXpRequirement)
-            return 0;
-
         var xpLevelToCost = 0;
         var itemEnchantments = toolItemStack.get(EnchantmentHelper.getComponentType(toolItemStack));
         for (var entry : itemEnchantments.entrySet()) {
@@ -44,9 +40,6 @@ public class EnchantmentUtils {
     }
 
     public static boolean checkSatisfyXpRequirement(ItemStack toolItemStack, Player player) {
-        if (!Config.enableXpRequirement)
-            return true;
-
         var xpLevelToCost = getEnchantCost(toolItemStack);
         return xpLevelToCost <= player.experienceLevel;
     }
