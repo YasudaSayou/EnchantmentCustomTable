@@ -6,13 +6,18 @@ import net.neoforged.neoforge.network.handling.IPayloadContext;
 public class EnchantingCustomTableServerPayloadHandler {
 
     public static void handleDataOnMain(final EnchantingCustomTableNetData data, final IPayloadContext context) {
-        if (!(context.player().containerMenu instanceof EnchantingCustomMenu menu) || !menu.stillValid(context.player())) {
-            return;
-        }
+        EnchantingCustomMenu menu = (EnchantingCustomMenu)context.player().containerMenu;
 
-        if (!data.intent().dispatchTo(menu)) {
-            return;
+        switch (EnchantingCustomTableNetData.OperateType.valueOf(data.operateType())) {
+            case EXPORT_ALL_ENCHANTMENTS -> {
+                menu.exportAllEnchantments();
+            }
+            case NEXT_PAGE -> {
+                menu.nextPage();
+            }
+            case PREVIOUS_PAGE -> {
+                menu.previousPage();
+            }
         }
-        menu.broadcastChanges();
     }
 }

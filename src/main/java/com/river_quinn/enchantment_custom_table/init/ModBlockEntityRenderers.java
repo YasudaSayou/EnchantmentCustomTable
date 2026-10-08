@@ -7,12 +7,12 @@ public class ModBlockEntityRenderers {
     public static void register(EntityRenderersEvent.RegisterRenderers event) {
         event.registerBlockEntityRenderer(
                 ModBlockEntities.ENCHANTING_CUSTOM_TABLE.get(),
-                EnchantingCustomTableRenderer::enchantingCustom
+                EnchantingCustomTableRenderer::new
         );
 
         event.registerBlockEntityRenderer(
                 ModBlockEntities.ENCHANTMENT_CONVERSION_TABLE.get(),
-                EnchantingCustomTableRenderer::enchantmentConversion
+                EnchantingCustomTableRenderer::new
         );
     }
 }

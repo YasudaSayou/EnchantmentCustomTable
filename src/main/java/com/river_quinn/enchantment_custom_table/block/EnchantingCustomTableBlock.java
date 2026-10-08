@@ -7,11 +7,6 @@ import io.netty.buffer.Unpooled;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.network.chat.Component;
-//? if >=1.21.11 {
-import net.minecraft.resources.Identifier;
-//?} else {
-/*import net.minecraft.resources.ResourceLocation;*/
-//?}
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.MenuProvider;
@@ -19,7 +14,6 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -34,21 +28,9 @@ public class EnchantingCustomTableBlock extends EnchantingTableLikeBlock {
         super(properties);
     }
 
-    //? if <1.21.2 {
-    /*public EnchantingCustomTableBlock() {
+    public EnchantingCustomTableBlock() {
         super();
     }
-    *///?}
-
-    //? if >=1.21.2 {
-    //? if >=1.21.11 {
-    public EnchantingCustomTableBlock(Identifier registryName) {
-    //?} else {
-    /*public EnchantingCustomTableBlock(ResourceLocation registryName) {
-    *///?}
-        super(registryName);
-    }
-    //?}
 
     @Override
     protected MapCodec<? extends EnchantingCustomTableBlock> codec() {
@@ -82,15 +64,17 @@ public class EnchantingCustomTableBlock extends EnchantingTableLikeBlock {
     }
 
     @Override
-    public void destroy(LevelAccessor level, BlockPos pos, BlockState state) {
-        if (level instanceof Level world) {
+    public void onRemove(BlockState state, Level world, BlockPos pos, BlockState newState, boolean isMoving) {
+        if (state.getBlock() != newState.getBlock()) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
-            if (blockEntity instanceof EnchantingCustomTableBlockEntity blockEntityWithInventory) {
-                blockEntityWithInventory.dropInventory();
+            if (blockEntity instanceof EnchantingCustomTableBlockEntity be) {
+                // Containers.dropContents(world, pos, be);
+//                be.dropToolInFirstSlotOnRemove();
                 world.updateNeighbourForOutputSignal(pos, this);
             }
+            super.onRemove(state, world, pos, newState, isMoving);
         }
-        super.destroy(level, pos, state);
     }
+
 
 }
